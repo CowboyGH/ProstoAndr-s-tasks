@@ -16,9 +16,13 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('dd-mm-yyyy'),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        actions: [IconButton(onPressed: () {
+          // or navigation bar with routes
+        }, icon: const Icon(Icons.menu))],
       ),
-      body: widget, // затычка
+      body: const Center(child: CircularProgressIndicator()), // plug 
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task2_app/features/view/currency_list_screen.dart';
+import 'theme/theme.dart';
 
 class CurrencyListApp extends StatelessWidget {
   const CurrencyListApp({super.key});
@@ -8,11 +9,7 @@ class CurrencyListApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'dd-mm-yyyy',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: mainTheme,
       home: const CurrencyListScreen(),
     );
   }
