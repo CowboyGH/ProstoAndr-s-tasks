@@ -7,7 +7,8 @@ class CurrencyListScreen extends StatefulWidget {
 }
 
 class _CurrencyListScreenState extends State<CurrencyListScreen> {
-@override
+  int currentPageIndex = 0;
+  @override
   void setState(VoidCallback fn) {
     super.setState(fn);
   }
@@ -18,9 +19,20 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
       appBar: AppBar(
         title: const Text('dd-mm-yyyy'),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        actions: [IconButton(onPressed: () {
-          // or navigation bar with routes
-        }, icon: const Icon(Icons.menu))],
+      ),
+
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.history), label: 'Transactions'),
+          NavigationDestination(icon: Icon(Icons.info_outline), label: 'About app')
+        ],
+        selectedIndex: currentPageIndex,
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
       ),
       body: const Center(child: CircularProgressIndicator()), // plug 
     );
