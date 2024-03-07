@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task2_app/features/currency_list/view/currency_list_screen.dart';
-import 'package:task2_app/router/routes.dart';
+import 'package:task2_app/features/navigation/view/navigation_screen.dart';
 import 'theme/theme.dart';
 
 class CurrencyListApp extends StatelessWidget {
@@ -11,8 +10,7 @@ class CurrencyListApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: mainTheme,
-      routes: routes,
-      home: const CurrencyListScreen(),
+      home: const NavigationScreen(),
     );
   }
 }
