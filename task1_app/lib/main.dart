@@ -14,9 +14,6 @@ class MarsPhotosApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
       home: BlocProvider(
         create: (context) => NasaCubit(),
         child: const MarsPhotosScreen()
