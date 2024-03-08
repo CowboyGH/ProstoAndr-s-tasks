@@ -1,15 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:task2_app/repositories/currencies/models/currency.dart';
 import 'package:xml/xml.dart';
-import 'package:task2_app/repositories/currencies/abstract_currencies_repo.dart';
 
-class CurrenciesRepo implements AbstractCurrenciesRepo{
-  final Dio dio;
-  CurrenciesRepo({required this.dio});
-
-  @override
-  Future<List<Currency>> getCurrenciesList() async {
-    final response = await dio.get('http://www.cbr.ru/scripts/XML_daily.asp');
+Future<List<Currency>> getCurrenciesList() async {
+    final response = await Dio().get('http://www.cbr.ru/scripts/XML_daily.asp');
 
     if (response.statusCode == 200) {
       final document = XmlDocument.parse(response.data);
@@ -29,6 +23,5 @@ class CurrenciesRepo implements AbstractCurrenciesRepo{
       return currenciesList;
     } else {
       throw Exception('Ошибка загрузки XML: ${response.statusCode}');
-    }
-  }
+      }
 }
