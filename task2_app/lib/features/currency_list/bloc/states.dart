@@ -3,11 +3,6 @@ import 'package:task2_app/repositories/currencies/models/currency.dart';
 
 abstract class CurrenciesListState extends Equatable{}
 
-class CurrenciesListInitial extends CurrenciesListState {
-  @override
-  List<Object?> get props => [];
-}
-
 class CurrenciesListLoading extends CurrenciesListState {
   @override
   List<Object?> get props => [];
