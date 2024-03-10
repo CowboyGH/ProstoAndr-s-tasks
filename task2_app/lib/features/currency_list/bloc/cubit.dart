@@ -7,9 +7,9 @@ import 'package:task2_app/requests/api.dart';
 class CurrencyCubit extends Cubit<CurrenciesListState> {
   CurrencyCubit() : super(CurrenciesListLoading());
 
-  Future<void> loadCurrencies() async {
+  Future<void> getCurrenciesList() async {
     try {
-      List<Currency> currenciesList = await getCurrenciesList();
+      List<Currency> currenciesList = await loadCurrenciesList();
       emit(CurrenciesListLoaded(currenciesList: currenciesList));
       return;
     } catch (e) {

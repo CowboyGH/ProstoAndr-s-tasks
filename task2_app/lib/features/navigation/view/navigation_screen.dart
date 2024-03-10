@@ -13,10 +13,6 @@ class NavigationScreen extends StatefulWidget {
 class _NavigationScreenState extends State<NavigationScreen> {
   int _currentPageIndex = 0;
   final _pageController = PageController();
-  @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
 
 class Currency extends Equatable{
-  // name charCode value
   final String name;
   final String charCode;
-  final double value;
+  final String value;
 
   const Currency({
     required this.name, 

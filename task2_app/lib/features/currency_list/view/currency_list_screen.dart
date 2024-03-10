@@ -21,7 +21,7 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
       body: BlocBuilder<CurrencyCubit, CurrenciesListState> (
         builder: (context, state) {
           if (state is CurrenciesListLoading) {
-            BlocProvider.of<CurrencyCubit>(context).loadCurrencies();
+            BlocProvider.of<CurrencyCubit>(context).getCurrenciesList();
             return const Center(child: CircularProgressIndicator());
           }
 
@@ -43,15 +43,18 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
                 children: [
                   const Text('Error.'),
                   const SizedBox(height: 25),
-                  FloatingActionButton(onPressed: () {
-                    // reload
-                  }),
+                  FloatingActionButton(
+                    onPressed: () {
+                      BlocProvider.of<CurrencyCubit>(context).getCurrenciesList();
+                    },
+                    child: const Icon(Icons.restart_alt_outlined)
+                  ),
                   const Text('Click to restart.')
                 ],
               ),
             );
           }
-          return const Center(child: CircularProgressIndicator());
+          return const Divider();
         }
       ) 
     );
