@@ -41,7 +41,7 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
             return Center(
               child: Column(
                 children: [
-                  const Text('Error.'),
+                  Text(state.exception.toString()),
                   const SizedBox(height: 25),
                   FloatingActionButton(
                     onPressed: () {
