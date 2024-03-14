@@ -39,18 +39,23 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
 
           if (state is CurrenciesListLoadError) {
             return Center(
-              child: Column(
-                children: [
-                  Text(state.exception.toString()),
-                  const SizedBox(height: 25),
-                  FloatingActionButton(
-                    onPressed: () {
-                      BlocProvider.of<CurrencyCubit>(context).getCurrenciesList();
-                    },
-                    child: const Icon(Icons.restart_alt_outlined)
-                  ),
-                  const Text('Click to restart.')
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(32),
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(state.exception.toString()),
+                    const SizedBox(height: 25),
+                    FloatingActionButton(
+                      onPressed: () {
+                        BlocProvider.of<CurrencyCubit>(context).getCurrenciesList();
+                      },
+                      child: const Icon(Icons.restart_alt_outlined)
+                    ),
+                    const SizedBox(height: 8),
+                    const Text('Click to restart.')
+                  ],
+                ),
               ),
             );
           }
