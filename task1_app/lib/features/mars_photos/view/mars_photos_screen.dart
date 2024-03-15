@@ -40,7 +40,7 @@ class _MarsPhotosScreenState extends State<MarsPhotosScreen> {
       ),
       body: BlocBuilder<NasaCubit, NasaState>(
         builder: (context, state){
-          if (state is NasaLoadingState) {
+          if (state is NasaInitState) {
             BlocProvider.of<NasaCubit>(context).loadData();
             return const Center(child: CircularProgressIndicator(color: Colors.black));
           }

@@ -20,7 +20,7 @@ class _CurrencyListScreenState extends State<CurrencyListScreen> {
       ),
       body: BlocBuilder<CurrencyCubit, CurrenciesListState> (
         builder: (context, state) {
-          if (state is CurrenciesListLoading) {
+          if (state is CurrenciesListInitState) {
             BlocProvider.of<CurrencyCubit>(context).getCurrenciesList();
             return const Center(child: CircularProgressIndicator());
           }

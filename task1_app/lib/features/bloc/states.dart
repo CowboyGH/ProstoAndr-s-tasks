@@ -2,7 +2,7 @@ import 'package:task1_app/models/nasa.dart';
 
 abstract class NasaState {}
 
-class NasaLoadingState extends NasaState {}
+class NasaInitState extends NasaState {}
 
 class NasaLoadedState extends NasaState {
   Nasa data;

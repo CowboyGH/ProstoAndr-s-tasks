@@ -4,10 +4,11 @@ import 'package:task1_app/models/nasa.dart';
 import 'package:task1_app/requests/api.dart';
 
 class NasaCubit extends Cubit<NasaState> {
-  NasaCubit() : super(NasaLoadingState());
+  NasaCubit() : super(NasaInitState());
 
   Future<void> loadData() async {
     try {
+      emit(NasaInitState());
       Map<String, dynamic> apiData = await getNasaData();
       Nasa nasaData = Nasa.fromJson(apiData);
       emit(NasaLoadedState(data: nasaData));
